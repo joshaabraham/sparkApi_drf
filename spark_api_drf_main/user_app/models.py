@@ -10,6 +10,9 @@ class User(models.Model):
         age = models.IntegerField(null=True, blank=True)
         email = models.EmailField()
 
+        profilPicture = models.ImageField()
+        headerPagePicture = models.ImageField()
+
         dateCreation = models.DateTimeField(auto_now_add=True, null=False)
         dateMiseAJour = models.DateTimeField(auto_now=True, null=False)
 
