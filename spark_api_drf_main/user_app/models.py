@@ -1,21 +1,17 @@
+from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.utils.translation import gettext as _
 
+from .manager import CustomUserManager
 # Create your models here.
 
-class User(models.Model):
-        firstname = models.CharField(max_length=255, blank=False)
-        lastname = models.CharField(max_length=255, blank=False)
-        description = models.TextField(max_length=255)
-        password = models.CharField(max_length=255, blank=False)
-        age = models.IntegerField(null=True, blank=True)
-        email = models.EmailField()
+class CustomUser(AbstractUser):
+        email = models.EmailField(_('email address'), unique=True)
 
-        profilPicture = models.ImageField()
-        headerPagePicture = models.ImageField()
+        USERNAME_FIELD = 'email'
+        REQUIRED_FIELDS = ('username',)
 
-        dateCreation = models.DateTimeField(auto_now_add=True, null=False)
-        dateMiseAJour = models.DateTimeField(auto_now=True, null=False)
-
+        objects = CustomUserManager()
 
         def __str__(self):
-                return self.firstname + " " + self.lastname
+                return self.email
