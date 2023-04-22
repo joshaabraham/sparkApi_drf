@@ -13,6 +13,6 @@ router = routers.SimpleRouter()
 router.register(r'users', views.UserViewSet)
 
 urlpatterns = [
-           path('login/', obtain_auth_token, name='login'),
+           path('auth/', obtain_auth_token, name='login'),
 ]
 urlpatterns += router.urls
