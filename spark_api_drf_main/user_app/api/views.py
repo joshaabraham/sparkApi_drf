@@ -5,7 +5,7 @@ from user_app.api.serializers import UserSerializer
 from django.contrib.auth import get_user_model
 from user_app.models import CustomUser
 from rest_framework.authentication import TokenAuthentication
-from rest_framework.permissions import IsAuthenticated
+from user_app.api.permissions import IsCreationOrIsAuthenticated
 
 # Create your views here.
 class UserViewSet(viewsets.ModelViewSet):
@@ -14,4 +14,4 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
     
     authentication_classes = (TokenAuthentication,)
-    permission_classes = (IsAuthenticated,)
+    permission_classes = (IsCreationOrIsAuthenticated,)
