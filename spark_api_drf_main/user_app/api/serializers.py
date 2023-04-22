@@ -5,13 +5,33 @@ from django.contrib.auth import get_user_model
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        User = get_user_model()
-        model = User
-        # fields = ('id', 'username', 'password', 'email', 'first_name', 'last_name', 'address', 'dob', 'mobile')
-        fields = ('id', 'username', 'password', 'email', 'first_name', 'last_name')
-        extra_kwargs = {'password': {'write_only': True, 'required': False}}    
-        
+        CustomUser = get_user_model()
+        model = CustomUser
+        fields = [
+            "id",
+            "email",
+            "username",
+            "first_name",
+            "last_name",
+            "bio",
+            "profile_picture",
+            "friends",
+        ]
+        extra_kwargs = {
+            "email": {"write_only": True},
+            "friends": {"required": False},
+        }
+
     def create(self, validated_data):
-        User = get_user_model()
-        user = User.objects.create_user(**validated_data)
+        user = CustomUser.objects.create_user(
+            email=validated_data["email"],
+            username=validated_data["username"],
+            password=validated_data["password"],
+        )
         return user
+
+    def update(self, instance, validated_data):
+        if "password" in validated_data:
+            password = validated_data.pop("password")
+            instance.set_password(password)
+        return super().update(instance, validated_data)
