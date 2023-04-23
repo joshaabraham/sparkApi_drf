@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'sport_app',
     'user_app',
     'ecommerce',
+    'images_app',
     'rest_framework.authtoken'
 ]
 
