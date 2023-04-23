@@ -24,4 +24,5 @@ urlpatterns = [
     path("chat/", include("chat_app.api.urls")),
     path("ecommerce/", include("ecommerce.api.urls")),
     path("gallery/", include("images_app.api.urls")),
+    path("equipe/", include("equipe_app.api.urls")),
 ]
