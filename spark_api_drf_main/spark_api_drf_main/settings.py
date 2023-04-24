@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'equipe_app',
     'publicite_app',
     'abonnement_app',
+    'localisation_app',
     'rest_framework.authtoken'
 ]
 
