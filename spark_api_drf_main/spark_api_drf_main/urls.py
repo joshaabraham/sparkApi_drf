@@ -31,4 +31,6 @@ urlpatterns = [
     path("qrCodes/", include("qr_codes_app.api.urls")),
     path("user_config/", include("user_config.api.urls")),
     path("association_config/", include("association_configuration_app.api.urls")),
+    path("employment_app/", include("employment_app.api.urls")),
+    path("academy_app/", include("academy_app.api.urls")),
 ]
