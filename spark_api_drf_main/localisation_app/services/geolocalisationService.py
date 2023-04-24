@@ -4,8 +4,6 @@ from geopy.geocoders import GoogleV3
 from dotenv import load_dotenv
 
 
-
-
 load_dotenv()
 
 def get_geocode(address):
