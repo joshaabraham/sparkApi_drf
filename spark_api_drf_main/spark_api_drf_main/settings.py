@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'association_app',
     'qr_codes_app',
     'user_config',
+    'association_configuration_app',
     'rest_framework.authtoken'
 ]
 
