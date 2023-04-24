@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'abonnement_app',
     'localisation_app',
     'sport_events_app',
+    'association_app',
     'rest_framework.authtoken'
 ]
 
