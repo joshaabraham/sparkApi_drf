@@ -28,4 +28,5 @@ urlpatterns = [
     path("publicitee/", include("publicite_app.api.urls")),
     path("payment/", include("abonnement_app.api.urls")),
     path("localisation/", include("localisation_app.api.urls")),
+    path("qrCodes/", include("qr_codes_app.api.urls")),
 ]

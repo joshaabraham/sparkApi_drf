@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'localisation_app',
     'sport_events_app',
     'association_app',
+    'qr_codes_app',
     'rest_framework.authtoken'
 ]
 
