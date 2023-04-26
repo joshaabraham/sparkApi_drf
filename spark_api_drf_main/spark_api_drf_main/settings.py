@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'qr_codes_app',
     'user_config',
     'association_configuration_app',
+    'post_and_comment_app',
     'rest_framework.authtoken'
 ]
 
