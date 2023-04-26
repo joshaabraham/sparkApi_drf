@@ -55,6 +55,8 @@ INSTALLED_APPS = [
     'association_app',
     'qr_codes_app',
     'user_config',
+    'employment_app',
+    'academy_app',
     'association_configuration_app',
     'post_and_comment_app',
     'rest_framework.authtoken'
