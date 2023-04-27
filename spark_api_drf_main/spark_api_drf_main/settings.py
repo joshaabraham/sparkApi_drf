@@ -59,7 +59,7 @@ INSTALLED_APPS = [
     'academy_app',
     'association_configuration_app',
     'post_and_comment_app',
-    'rest_framework.authtoken'
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
