@@ -45,7 +45,7 @@ class CustomUser(AbstractUser):
         return self.username
     
     
-    #     Informations personnelles de base:
+    # Informations personnelles de base:
     #     Identifiant utilisateur (ID)
     #     Nom complet
     #     Date de naissance
