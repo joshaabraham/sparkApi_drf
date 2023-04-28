@@ -23,3 +23,9 @@ class JobSearch(models.Model):
 
     def __str__(self):
         return self.title
+    
+# Informations professionnelles et éducatives:
+#     Emploi actuel
+#     Entreprises précédentes
+#     Secteur d'activité
+#     Formation (écoles, universités, diplômes)
