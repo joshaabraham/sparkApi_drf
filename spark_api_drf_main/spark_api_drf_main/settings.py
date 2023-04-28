@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'association_app',
     'association_configuration_app',
     'chat_app',
+    'comportement_app',
     'configuration_app',
     'connexionInfo_app',
     'contact_app',
