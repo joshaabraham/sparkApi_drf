@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     'post_and_comment_app',
     'publicite_app',
     'qr_codes_app',
-    'services_app',
+    #'services_app',
     'sport_app',
     'sport_events_app',
     'user_app',
