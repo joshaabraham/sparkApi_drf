@@ -40,7 +40,7 @@ urlpatterns = [
     # path("service_app/", include("service_app.api.urls")),
     path("post_and_comment_app/", include("post_and_comment_app.api.urls")),
     path("invitation_app/", include("invitation_app.api.urls")),
-    path("interest_app/", include("interest_app.api.urls")),
+    path("interests_app/", include("interests_app.api.urls")),
     
     
 ]

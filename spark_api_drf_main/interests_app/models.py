@@ -1,11 +1,9 @@
 from django.db import models
+from django.conf import settings
 
-# Create your models here.
+class Interest(models.Model):
+    name = models.CharField(max_length=200)
 
-
-# Préférences et centres d'intérêt:
-
-#     Pages et comptes suivis
-#     Centres d'intérêt (musique, films, sports, etc.)
-#     Hashtags et sujets favoris
-#     Langues et préférences de contenu
+class UserInterest(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    interest = models.ForeignKey(Interest, on_delete=models.CASCADE)

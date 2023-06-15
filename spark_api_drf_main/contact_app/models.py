@@ -1,15 +1,13 @@
 from django.db import models
 
-# Create your models here.
+from django.db import models
+from django.conf import settings
+
 class Contact(models.Model):
-    dateCreation = models.DateTimeField(auto_now_add=True, null=False)
-    dateMiseAJour = models.DateTimeField(auto_now=True, null=False)
+    user_from = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='rel_from_set', on_delete=models.CASCADE)
+    user_to = models.ForeignKey(settings.AUTH_USER_MODEL, related_name='rel_to_set', on_delete=models.CASCADE)
+    created = models.DateTimeField(auto_now_add=True, db_index=True)
 
-
-# Relations et interactions:
-
-#     Liste d'amis / abonnés / abonnements
-#     Groupes et communautés
-#     Interactions avec les publications (likes, commentaires, partages)
-#     Messages privés
-#     Mentions et tags
+    class Meta:
+        ordering = ('-created',)
+        
