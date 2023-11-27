@@ -6,10 +6,12 @@ from .serializers import SchoolSerializer, TeacherSerializer, StudentSerializer,
 class SchoolListCreateView(generics.ListCreateAPIView):
     queryset = School.objects.all()
     serializer_class = SchoolSerializer
+    template_name = None  # Désactive le rendu de template
 
 class SchoolRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = School.objects.all()
     serializer_class = SchoolSerializer
+    template_name = None  # Désactive le rendu de template
 
     # Teacher Views
 class TeacherListCreateView(generics.ListCreateAPIView):
