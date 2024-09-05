@@ -2,15 +2,15 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path("members/", views.MemberListCreateView.as_view(), name="member_list_create"),
-    path("members/<int:pk>/", views.MemberRetrieveUpdateDestroyView.as_view(), name="member_detail"),
+    path("membersCreate/", views.MemberListCreateView.as_view(), name="member_create"),
+    path("member/<int:pk>/", views.MemberRetrieveUpdateDestroyView.as_view(), name="member_detail"),
 
-    path("sport_events/", views.SportEventListCreateView.as_view(), name="sport_event_list_create"),
-    path("sport_events/<int:pk>/", views.SportEventRetrieveUpdateDestroyView.as_view(), name="sport_event_detail"),
+    path("sport_eventsCreate/", views.SportEventListCreateView.as_view(), name="sport_event_create"),
+    path("sport_event/<int:pk>/", views.SportEventRetrieveUpdateDestroyView.as_view(), name="sport_event_detail"),
 
-    path("promotions/", views.PromotionListCreateView.as_view(), name="promotion_list_create"),
-    path("promotions/<int:pk>/", views.PromotionRetrieveUpdateDestroyView.as_view(), name="promotion_detail"),
+    path("promotionCreate/", views.PromotionListCreateView.as_view(), name="promotion_create"),
+    path("promotion/<int:pk>/", views.PromotionRetrieveUpdateDestroyView.as_view(), name="promotion_detail"),
 
-    path("subscriptions/", views.SubscriptionListCreateView.as_view(), name="subscription_list_create"),
-    path("subscriptions/<int:pk>/", views.SubscriptionRetrieveUpdateDestroyView.as_view(), name="subscription_detail"),
+    path("subscriptionsAssocCreate/", views.SubscriptionListCreateView.as_view(), name="subscription_create"),
+    path("subscriptionAssoc/<int:pk>/", views.SubscriptionRetrieveUpdateDestroyView.as_view(), name="subscription_detail"),
 ]

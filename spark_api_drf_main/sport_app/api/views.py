@@ -1,3 +1,15 @@
-from django.shortcuts import render
+from rest_framework import generics
+from sport_app.models import Sport
+from .serializers import SportSerializer
 
-# Create your views here.
+class SportListCreateView(generics.ListCreateAPIView):
+    queryset = Sport.objects.all()
+    serializer_class = SportSerializer
+
+class SportRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Sport.objects.all()
+    serializer_class = SportSerializer
+    
+class SportRetrieveList(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Sport.objects.all()
+    serializer_class = SportSerializer

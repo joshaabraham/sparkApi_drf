@@ -2,6 +2,6 @@ from django.urls import path
 from .views import InvitationListCreateView, InvitationRetrieveUpdateDestroyView
 
 urlpatterns = [
-    path('invitations/', InvitationListCreateView.as_view(), name='invitations-list-create'),
-    path('invitations/<int:pk>/', InvitationRetrieveUpdateDestroyView.as_view(), name='invitations-retrieve-update-destroy'),
+    path('invitationCreate/', InvitationListCreateView.as_view(), name='invitations_create'),
+    path('invitation/<int:pk>/', InvitationRetrieveUpdateDestroyView.as_view(), name='invitations_retrieve_update_destroy'),
 ]

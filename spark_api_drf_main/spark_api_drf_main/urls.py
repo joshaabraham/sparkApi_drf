@@ -20,28 +20,46 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("api/", include("abonnement_app.api.urls")),
-    path("api/", include("academy_app.api.urls")),
-    path("api/", include("association_app.api.urls")),
-    path("api/", include("association_configuration_app.api.urls")),
-    path("api/", include("chat_app.api.urls")),
-    path("api/", include("contact_app.api.urls")),
-    path("api/", include("comportement_app.api.urls")),
-    path('api/', include('user_app.api.urls')),
-    path("api/", include("ecommerce.api.urls")),
-    path("api/", include("images_app.api.urls")),
-    path("api/", include("equipe_app.api.urls")),
-    path("api/", include("publicite_app.api.urls")),
-    path("api/", include("abonnement_app.api.urls")),
-    path("api/", include("localisation_app.api.urls")),
-    path("api/", include("qr_codes_app.api.urls")),
-    path("api/", include("user_config.api.urls")),
-    path("api/", include("employment_app.api.urls")),
+    path("Subscriptions/", include("abonnement_app.api.urls")),
+    path("Payments/", include("abonnement_app.api.urls")),
+    
+    path("Schools/", include("academy_app.api.urls")),
+    path("Teachers/", include("academy_app.api.urls")),
+    path("Students/", include("academy_app.api.urls")),
+    path("Sections/", include("academy_app.api.urls")),
+    path("Chapters/", include("academy_app.api.urls")),
+    
+    
+    path("Members/", include("association_app.api.urls")),
+    path("Sport_events/", include("association_app.api.urls")),
+    path("Promotion/", include("association_app.api.urls")),
+    path("SubscriptionsAssoc/", include("association_app.api.urls")),
+    
+    
+    
+    path("spc/", include("association_configuration_app.api.urls")),
+    path("chats/", include("chat_app.api.urls")),
+    path("contact/", include("contact_app.api.urls")),
+    path("useraction/", include("comportement_app.api.urls")),
+    
+    
+    path("ecommerce/", include("ecommerce.api.urls")),
+    path("images_app/", include("images_app.api.urls")),
+    path("equipe_app/", include("equipe_app.api.urls")),
+    path("publicite_app/", include("publicite_app.api.urls")),
+
+    path("localisation_app/", include("localisation_app.api.urls")),
+    path("qr_codes_app/", include("qr_codes_app.api.urls")),
+    path("user_config/", include("user_config.api.urls")),
+    path("employment_app/", include("employment_app.api.urls")),
     # path("api/", include("service_app.api.urls")),
-    path("api/", include("post_and_comment_app.api.urls")),
-    path("api/", include("invitation_app.api.urls")),
-    path("api/", include("interests_app.api.urls")),
-    path("api/", include("user_app.api.urls")),
+    path("post_and_comment_app/", include("post_and_comment_app.api.urls")),
+    path("invitation_app/", include("invitation_app.api.urls")),
+    path("interests_app/", include("interests_app.api.urls")),
+    
+    path("user_app/", include("user_app.api.urls")),
+    path("sport_app/", include("sport_app.api.urls")),
+
     
     
 ]
