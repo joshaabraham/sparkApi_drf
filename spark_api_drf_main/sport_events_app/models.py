@@ -1,8 +1,10 @@
 from django.db import models
 from django.conf import settings
+from sport_app.models import Sport
 
 class SportEvent(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="sport_events")
+    sportFK = models.ForeignKey(Sport, on_delete=models.CASCADE, related_name='sport_events')
     name = models.CharField(max_length=200)
     description = models.TextField(blank=True, null=True)
     location = models.CharField(max_length=255)

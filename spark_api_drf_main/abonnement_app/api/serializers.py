@@ -5,7 +5,8 @@ from user_app.api.serializers import UserSerializer
 class PaymentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Payment
-        fields = ["id", "subscription", "stripe_charge_id", "amount", "timestamp"]
+        fields = '__all__' 
+        #fields = ["id", "subscription", "stripe_charge_id", "amount", "timestamp"]
 
 class SubscriptionSerializer(serializers.ModelSerializer):
     user = UserSerializer(read_only=True)
@@ -13,4 +14,5 @@ class SubscriptionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Subscription
-        fields = ["id", "user", "stripe_customer_id", "stripe_subscription_id", "plan", "is_active", "payments"]
+        fields = '__all__' 
+        #fields = ["id", "user", "stripe_customer_id", "stripe_subscription_id", "plan", "is_active", "payments"]
