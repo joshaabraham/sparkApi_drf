@@ -5,7 +5,7 @@ from user_app.api.serializers import UserSerializer
 class ImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Image
-        fields = ["id", "title", "description", "image", "album", "uploaded_at"]
+        fields = '__all__'
 
 class AlbumSerializer(serializers.ModelSerializer):
     owner = UserSerializer(read_only=True)
@@ -13,4 +13,4 @@ class AlbumSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Album
-        fields = ["id", "title", "description", "owner", "images"]
+        fields = '__all__'

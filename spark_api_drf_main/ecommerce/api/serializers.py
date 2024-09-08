@@ -5,26 +5,26 @@ from user_app.api.serializers import CustomUser
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ["id", "name", "description"]
+        fields = '__all__'
 
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ["id", "name", "description", "price", "category", "image"]
+        fields = '__all__'
 
 class CustomerSerializer(serializers.ModelSerializer):
     user = CustomUser()
 
     class Meta:
         model = Customer
-        fields = ["id", "user", "address"]
+        fields = '__all__'
 
 class OrderItemSerializer(serializers.ModelSerializer):
     product = ProductSerializer()
 
     class Meta:
         model = OrderItem
-        fields = ["id", "product", "order", "quantity"]
+        fields = '__all__'
 
 class OrderSerializer(serializers.ModelSerializer):
     customer = CustomerSerializer()
@@ -32,4 +32,4 @@ class OrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order
-        fields = ["id", "customer", "created_at", "updated_at", "order_items"]
+        fields = '__all__'

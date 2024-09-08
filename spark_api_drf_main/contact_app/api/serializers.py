@@ -7,4 +7,4 @@ User = get_user_model()
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
-        fields = ['id', 'user_from', 'user_to']
+        fields = '__all__'

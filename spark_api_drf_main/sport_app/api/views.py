@@ -10,6 +10,6 @@ class SportRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Sport.objects.all()
     serializer_class = SportSerializer
     
-class SportRetrieveList(generics.RetrieveUpdateDestroyAPIView):
+class SportRetrieveList(generics.ListAPIView):
     queryset = Sport.objects.all()
     serializer_class = SportSerializer

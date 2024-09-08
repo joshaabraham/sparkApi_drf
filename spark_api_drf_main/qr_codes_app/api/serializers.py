@@ -4,4 +4,4 @@ from qr_codes_app.models import QRCode
 class QRCodeSerializer(serializers.ModelSerializer):
     class Meta:
         model = QRCode
-        fields = ["id", "content"]
+        fields = '__all__'

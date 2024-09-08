@@ -5,8 +5,20 @@ from django.db import models
 
 class Sport(models.Model):
         code = models.CharField(max_length=4)
-        titre = models.CharField(max_length=150)
-        categorie = models.CharField(max_length=150)
+        categorie = models.CharField(max_length=150, default=None)
+        
+        sp_titre_fr = models.CharField(max_length=150, default=None)
+        sp_titre_en = models.CharField(max_length=150, default=None)
+        sp_titre_por = models.CharField(max_length=150, default=None)
+        sp_titre_ko = models.CharField(max_length=150, default=None)
+        sp_titre_jp = models.CharField(max_length=150, default=None)
+        sp_titre_es = models.CharField(max_length=150, default=None)
+        sp_titre_ru = models.CharField(max_length=150, default=None)
+        sp_titre_ind = models.CharField(max_length=150, default=None)
+        sp_titre_pol = models.CharField(max_length=150, default=None)
+        sp_titre_ita = models.CharField(max_length=150, default=None)
+        
+        
         icon_petit = models.ImageField(max_length=150)
         icon_grand = models.ImageField(max_length=150)
 

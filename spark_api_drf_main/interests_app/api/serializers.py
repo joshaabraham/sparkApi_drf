@@ -4,14 +4,14 @@ from interests_app.models import UserInterest, Interest
 class InterestSerializer(serializers.ModelSerializer):
     class Meta:
         model = Interest
-        fields = ['id', 'name']
+        fields = '__all__'
 
 class UserInterestSerializer(serializers.ModelSerializer):
     interest = InterestSerializer(many=False)
 
     class Meta:
         model = UserInterest
-        fields = ['user', 'interest']
+        fields = '__all__'
 
     def create(self, validated_data):
         interest_data = validated_data.pop('interest')

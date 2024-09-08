@@ -8,7 +8,7 @@ class MessageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Message
-        fields = ["id", "chat", "sender", "content", "timestamp"]
+        fields = '__all__'
 
 class ChatSerializer(serializers.ModelSerializer):
     participants = UserSerializer(many=True, read_only=True)
@@ -16,4 +16,4 @@ class ChatSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Chat
-        fields = ["id", "participants", "created_at", "messages"]
+        fields = '__all__'

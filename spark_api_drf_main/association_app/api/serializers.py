@@ -4,19 +4,19 @@ from association_app.models import Member, SportEvent, Promotion, Subscription
 class MemberSerializer(serializers.ModelSerializer):
     class Meta:
         model = Member
-        fields = ["id", "user", "is_admin"]
+        fields = '__all__'
 
 
 class SportEventSerializer(serializers.ModelSerializer):
     class Meta:
         model = SportEvent
-        fields = ["id", "name", "description", "location", "event_date"]
+        fields = '__all__'
 
 
 class PromotionSerializer(serializers.ModelSerializer):
     class Meta:
         model = Promotion
-        fields = ["id", "code", "discount", "start_date", "end_date"]
+        fields = '__all__'
 
 
 class SubscriptionSerializer(serializers.ModelSerializer):
@@ -26,4 +26,4 @@ class SubscriptionSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Subscription
-        fields = ["id", "member", "sport_event", "promotion", "start_date", "end_date"]
+        fields = '__all__'

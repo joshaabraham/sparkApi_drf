@@ -5,7 +5,7 @@ from user_app.api.serializers import UserSerializer
 class AdSerializer(serializers.ModelSerializer):
     class Meta:
         model = Ad
-        fields = ["id", "title", "description", "image", "url", "ad_campaign"]
+        fields = '__all__'
 
 class AdCampaignSerializer(serializers.ModelSerializer):
     owner = UserSerializer(read_only=True)
@@ -13,4 +13,4 @@ class AdCampaignSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = AdCampaign
-        fields = ["id", "name", "start_date", "end_date", "budget", "owner", "ads"]
+        fields = '__all__'
