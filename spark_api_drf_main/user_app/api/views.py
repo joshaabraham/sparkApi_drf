@@ -9,8 +9,6 @@ from user_app.models import CustomUser
 
 
 
-
-
 # Create your views here.
 class RegisterView(APIView):
     def post(self, request):
