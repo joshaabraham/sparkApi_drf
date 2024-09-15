@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'user_app',
     'user_config',
     'rest_framework.authtoken',
+    'profile_app',
 ]
 
 MIDDLEWARE = [
