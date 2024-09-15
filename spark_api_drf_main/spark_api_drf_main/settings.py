@@ -27,7 +27,15 @@ STRIPE_PUBLIC_KEY = 'your_stripe_secret_key'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['*']
+
+# Permettre à votre frontend Angular d'accéder à l'API
+# CORS_ALLOWED_ORIGINS = [
+#    'http://localhost:4200',  # L'URL de votre application Angular
+#]
+
+# Si vous voulez autoriser toutes les origines (à éviter en production)
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 # Application definition
@@ -39,6 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     
     'abonnement_app',
     'academy_app',
@@ -76,6 +85,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'spark_api_drf_main.urls'
