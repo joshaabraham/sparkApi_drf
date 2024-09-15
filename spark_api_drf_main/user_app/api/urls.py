@@ -1,18 +1,13 @@
-from unicodedata import name
-from rest_framework.authtoken.views import obtain_auth_token
 from django.urls import path
-
-
-
-
-from django.urls import path, include
 from rest_framework import routers
 from user_app.api import views
 
 router = routers.SimpleRouter()
-router.register(r'users', views.UserViewSet)
 
 urlpatterns = [
-           path('auth/', obtain_auth_token, name='login'),
+    path('register', views.RegisterView.as_view()),
+    path('login', views.LoginView.as_view()),
+    path('user', views.UserView.as_view()),
+    path('logout', views.LogoutView.as_view()),
 ]
 urlpatterns += router.urls
