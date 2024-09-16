@@ -7,7 +7,10 @@ import jwt, datetime
 from user_app.api.serializers import UserSerializer
 from user_app.models import CustomUser
 
-
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.exceptions import TokenError
+from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
 # Create your views here.
 class RegisterView(APIView):
@@ -20,8 +23,8 @@ class RegisterView(APIView):
 
 class LoginView(APIView):
     def post(self, request):
-        email = request.data['email']
-        password = request.data['password']
+        email = request.data.get('email')
+        password = request.data.get('password')
 
         user = CustomUser.objects.filter(email=email).first()
 
@@ -31,40 +34,23 @@ class LoginView(APIView):
         if not user.check_password(password):
             raise AuthenticationFailed('Incorrect password!')
 
-        payload = {
-            'id': user.id,
-            'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=60),
-            'iat': datetime.datetime.utcnow()
-        }
+        # Generate tokens using SimpleJWT
+        refresh = RefreshToken.for_user(user)
 
-        token = jwt.encode(payload, 'secret', algorithm='HS256').decode('utf-8')
-
-        response = Response()
-
-        response.set_cookie(key='jwt', value=token, httponly=True)
-        response.data = {
-            'jwt': token
-        }
-        return response
+        return Response({
+            'refresh': str(refresh),
+            'access': str(refresh.access_token),
+        })
 
 
 class UserView(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        token = request.COOKIES.get('jwt')
-
-        if not token:
-            raise AuthenticationFailed('Unauthenticated!')
-
-        try:
-            payload = jwt.decode(token, 'secret', algorithm=['HS256'])
-        except jwt.ExpiredSignatureError:
-            raise AuthenticationFailed('Unauthenticated!')
-
-        user = CustomUser.objects.filter(id=payload['id']).first()
+        user = request.user
         serializer = UserSerializer(user)
         return Response(serializer.data)
-
 
 class LogoutView(APIView):
     def post(self, request):
