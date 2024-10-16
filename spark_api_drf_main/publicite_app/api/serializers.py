@@ -1,16 +1,68 @@
 from rest_framework import serializers
-from publicite_app.models import AdCampaign, Ad
-from user_app.api.serializers import UserSerializer
+from publicite_app.models import (
+    PubliciteBase, PubliciteVideo, PubliciteBanniere, PubliciteCarrousel, PubliciteNative, Media, CtaButton,CampagnePublicitaire, BudgetCampagne,
+    PageFacebook,BudgetEtCalendrier,ControleAudience
+)
 
-class AdSerializer(serializers.ModelSerializer):
+class ControleAudienceSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Ad
+        model = ControleAudience
         fields = '__all__'
 
-class AdCampaignSerializer(serializers.ModelSerializer):
-    owner = UserSerializer(read_only=True)
-    ads = AdSerializer(many=True, read_only=True)
+class BudgetEtCalendrierSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BudgetEtCalendrier
+        fields = '__all__'
+
+class CampagnePublicitaireSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CampagnePublicitaire
+        fields = '__all__'
+        
+class PageFacebookSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PageFacebook
+        fields = '__all__'
+        
+class BudgetCampagneSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BudgetCampagne
+        fields = '__all__'
+
+class MediaSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Media
+        fields = '__all__'
+
+class CtaButtonSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CtaButton
+        fields = '__all__'
+
+class PubliciteBaseSerializer(serializers.ModelSerializer):
+    media = MediaSerializer()
+    cta_button = CtaButtonSerializer()
 
     class Meta:
-        model = AdCampaign
+        model = PubliciteBase
+        fields = '__all__'
+
+class PubliciteVideoSerializer(PubliciteBaseSerializer):
+    class Meta:
+        model = PubliciteVideo
+        fields = '__all__'
+
+class PubliciteBanniereSerializer(PubliciteBaseSerializer):
+    class Meta:
+        model = PubliciteBanniere
+        fields = '__all__'
+
+class PubliciteCarrouselSerializer(PubliciteBaseSerializer):
+    class Meta:
+        model = PubliciteCarrousel
+        fields = '__all__'
+
+class PubliciteNativeSerializer(PubliciteBaseSerializer):
+    class Meta:
+        model = PubliciteNative
         fields = '__all__'

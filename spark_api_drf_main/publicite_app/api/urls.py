@@ -1,9 +1,35 @@
 from django.urls import path
-from . import views
+from .views import (
+    CampagnePublicitaireListCreateView, CampagnePublicitaireDetailView,
+    PubliciteListCreateView, PubliciteDetailView,
+    ControleAudienceListCreateView, ControleAudienceDetailView,
+    BudgetEtCalendrierListCreateView, BudgetEtCalendrierDetailView,
+    PageFacebookListCreateView, PageFacebookDetailView,
+    BudgetCampagneListCreateView, BudgetCampagneDetailView
+)
 
 urlpatterns = [
-    path("adcampaigns/", views.AdCampaignListCreateView.as_view(), name="adcampaign_list_create"),
-    path("adcampaigns/<int:pk>/", views.AdCampaignRetrieveUpdateDestroyView.as_view(), name="adcampaign_detail"),
-    path("ads/", views.AdListCreateView.as_view(), name="ad_list_create"),
-    path("ads/<int:pk>/", views.AdRetrieveUpdateDestroyView.as_view(), name="ad_detail"),
+    # URLs pour Campagnes Publicitaires
+    path('campagnes/', CampagnePublicitaireListCreateView.as_view(), name='campagne-list-create'),
+    path('campagnes/<int:pk>/', CampagnePublicitaireDetailView.as_view(), name='campagne-detail'),
+
+    # URLs pour Publicités
+    path('publicites/', PubliciteListCreateView.as_view(), name='publicite-list-create'),
+    path('publicites/<int:pk>/', PubliciteDetailView.as_view(), name='publicite-detail'),
+    
+     # URLs for ControleAudience
+    path('controle-audience/', ControleAudienceListCreateView.as_view(), name='controle-audience-list-create'),
+    path('controle-audience/<int:pk>/', ControleAudienceDetailView.as_view(), name='controle-audience-detail'),
+
+    # URLs for BudgetEtCalendrier
+    path('budget-et-calendrier/', BudgetEtCalendrierListCreateView.as_view(), name='budget-et-calendrier-list-create'),
+    path('budget-et-calendrier/<int:pk>/', BudgetEtCalendrierDetailView.as_view(), name='budget-et-calendrier-detail'),
+
+    # URLs for PageFacebook
+    path('page-facebook/', PageFacebookListCreateView.as_view(), name='page-facebook-list-create'),
+    path('page-facebook/<int:pk>/', PageFacebookDetailView.as_view(), name='page-facebook-detail'),
+
+    # URLs for BudgetCampagne
+    path('budget-campagne/', BudgetCampagneListCreateView.as_view(), name='budget-campagne-list-create'),
+    path('budget-campagne/<int:pk>/', BudgetCampagneDetailView.as_view(), name='budget-campagne-detail'),
 ]

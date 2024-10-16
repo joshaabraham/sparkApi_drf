@@ -24,3 +24,6 @@ class Sport(models.Model):
 
         dateCreation = models.DateTimeField(auto_now_add=True, null=False)
         dateMiseAJour = models.DateTimeField(auto_now=True, null=False)
+
+        def __str__(self):
+                return self.sp_titre_fr
